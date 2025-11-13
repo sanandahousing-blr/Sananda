@@ -5,6 +5,7 @@ import { useState } from "react";
 import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import Copy from "@/components/Copy/Copy";
+import { RiFacebookBoxLine, RiInstagramLine, RiLinkedinBoxLine, RiWhatsappLine } from "react-icons/ri";
 
 const page = () => {
   const [formData, setFormData] = useState({
@@ -71,13 +72,13 @@ const page = () => {
                 <div className="contact-info-block">
                   <Copy delay={0.85}>
                     <p>Email</p>
-                    <p>info@anandaenterprise.in</p>
+                    <p>info@sanandahousing.com</p>
                   </Copy>
                 </div>
                 <div className="contact-info-block">
                   <Copy delay={1}>
                     <p>Phone & WhatsApp</p>
-                    <p>+91 760 606 0629</p>
+                    <p>+91 800 388 0087</p>
                   </Copy>
                 </div>
                 <div className="contact-info-block">
@@ -89,12 +90,27 @@ const page = () => {
                     <p>Bengaluru, India - 560102</p>
                   </Copy>
                 </div>
-                <div className="contact-info-block">
+                <div className="contact-info-block contact-social-block">
                   <Copy delay={1.3}>
-                    <p>Social Media</p>
-                    <p>Facebook</p>
-                    <p>Instagram</p>
-                    <p>LinkedIn</p>
+                    <p className="social-header">Connect With Us</p>
+                    <div className="contact-social-links">
+                      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
+                        <RiFacebookBoxLine />
+                        <span>Facebook</span>
+                      </a>
+                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+                        <RiInstagramLine />
+                        <span>Instagram</span>
+                      </a>
+                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+                        <RiLinkedinBoxLine />
+                        <span>LinkedIn</span>
+                      </a>
+                      <a href="https://wa.me/918003880087" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="WhatsApp">
+                        <RiWhatsappLine />
+                        <span>WhatsApp</span>
+                      </a>
+                    </div>
                   </Copy>
                 </div>
               </div>

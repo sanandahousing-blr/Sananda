@@ -307,8 +307,8 @@ const Nav = () => {
               <div className="sub-col">
                 <div className="menu-meta menu-commissions">
                   <p>Get In Touch</p>
-                  <p>info@anandaenterprise.in</p>
-                  <p>+91 760 606 0629</p>
+                  <p>info@sanandahousing.com</p>
+                  <p>+91 800 388 0087</p>
                 </div>
                 <div className="menu-meta">
                   <p>Company</p>

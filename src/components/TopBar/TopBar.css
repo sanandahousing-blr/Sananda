@@ -36,7 +36,7 @@
 }
 
 .top-bar .top-bar-logo .logo-image {
-  height: 3rem;
+  height: 5rem;
   width: auto;
   transition: opacity 0.3s ease-out;
 }
@@ -51,7 +51,7 @@
   }
 
   .top-bar .top-bar-logo .logo-image {
-    height: 2.5rem;
+    height: 4rem;
   }
 
   .top-bar .btn {
@@ -82,7 +82,7 @@
   }
 
   .top-bar .top-bar-logo .logo-image {
-    height: 2rem;
+    height: 3.5rem;
   }
 
   .top-bar .btn {
@@ -117,7 +117,7 @@
   }
 
   .top-bar .top-bar-logo .logo-image {
-    height: 1.75rem;
+    height: 3rem;
   }
 
   .top-bar .btn {
