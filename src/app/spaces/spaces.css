@@ -32,12 +32,31 @@
 
 .spaces .prop-filters .filter {
   color: var(--base-300);
-  padding: 0.5rem 0;
+  padding: 0.75rem 1.5rem;
   cursor: pointer;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.spaces .prop-filters .filter:hover {
+  color: var(--base-100);
+  background-color: rgba(26, 126, 183, 0.1);
+  border-color: rgba(26, 126, 183, 0.2);
+  transform: translateY(-2px);
 }
 
 .spaces .prop-filters .filter.default {
   color: var(--base-100);
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-light));
+  box-shadow: 0 4px 15px rgba(26, 126, 183, 0.3);
+  border-color: var(--brand-blue);
+}
+
+.spaces .prop-filters .filter.default:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 126, 183, 0.4);
 }
 
 .spaces .space {

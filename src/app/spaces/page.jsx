@@ -1,7 +1,7 @@
 "use client";
 import "./spaces.css";
 import { spacesData } from "./spaces.js";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 const page = () => {
   const spacesRef = useRef(null);
   const scrollTriggerInstances = useRef([]);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [filteredSpaces, setFilteredSpaces] = useState(spacesData);
 
   const cleanupScrollTriggers = () => {
     scrollTriggerInstances.current.forEach((instance) => {
@@ -34,36 +36,19 @@ const page = () => {
     spaces.forEach((space, index) => {
       gsap.set(space, {
         opacity: 0,
-        scale: 0.75,
-        y: 150,
+        scale: 0.95,
+        y: 30,
       });
 
-      if (index === 0) {
-        gsap.to(space, {
-          duration: 0.75,
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          ease: "power3.out",
-          delay: 1.4,
-        });
-      } else {
-        const trigger = ScrollTrigger.create({
-          trigger: space,
-          start: "top 100%",
-          onEnter: () => {
-            gsap.to(space, {
-              duration: 0.75,
-              y: 0,
-              scale: 1,
-              opacity: 1,
-              ease: "power3.out",
-            });
-          },
-        });
-
-        scrollTriggerInstances.current.push(trigger);
-      }
+      // Animate all spaces immediately with stagger
+      gsap.to(space, {
+        duration: 0.6,
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        ease: "power3.out",
+        delay: 0.2 + (index * 0.1),
+      });
     });
 
     ScrollTrigger.refresh();
@@ -82,7 +67,20 @@ const page = () => {
       window.removeEventListener("resize", handleResize);
       cleanupScrollTriggers();
     };
-  }, []);
+  }, [filteredSpaces]);
+
+  const handleFilterClick = (category) => {
+    setActiveFilter(category);
+
+    if (category === "All") {
+      setFilteredSpaces(spacesData);
+    } else {
+      const filtered = spacesData.filter(
+        (space) => space.category.toLowerCase() === category.toLowerCase()
+      );
+      setFilteredSpaces(filtered);
+    }
+  };
 
   return (
     <>
@@ -96,22 +94,34 @@ const page = () => {
                 <h1>Timeless Spaces</h1>
               </Copy>
               <div className="prop-filters">
-                <div className="filter default">
+                <div
+                  className={`filter ${activeFilter === "All" ? "default" : ""}`}
+                  onClick={() => handleFilterClick("All")}
+                >
                   <Copy delay={1}>
                     <p className="lg">All</p>
                   </Copy>
                 </div>
-                <div className="filter">
+                <div
+                  className={`filter ${activeFilter === "Residential" ? "default" : ""}`}
+                  onClick={() => handleFilterClick("Residential")}
+                >
                   <Copy delay={1.1}>
                     <p className="lg">Residential</p>
                   </Copy>
                 </div>
-                <div className="filter">
+                <div
+                  className={`filter ${activeFilter === "Commercial" ? "default" : ""}`}
+                  onClick={() => handleFilterClick("Commercial")}
+                >
                   <Copy delay={1.2}>
                     <p className="lg">Commercial</p>
                   </Copy>
                 </div>
-                <div className="filter">
+                <div
+                  className={`filter ${activeFilter === "Hospitality" ? "default" : ""}`}
+                  onClick={() => handleFilterClick("Hospitality")}
+                >
                   <Copy delay={1.3}>
                     <p className="lg">Hospitality</p>
                   </Copy>
@@ -122,7 +132,7 @@ const page = () => {
         </section>
         <section className="spaces-list">
           <div className="container" ref={spacesRef}>
-            {spacesData.map((space, index) => (
+            {filteredSpaces.map((space, index) => (
               <div
                 key={space.id}
                 className="space"

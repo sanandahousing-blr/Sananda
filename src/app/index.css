@@ -46,9 +46,21 @@
   padding: 1rem;
 }
 
+.hero .hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: -0.08rem;
+  line-height: 1.15;
+}
+
 .hero .hero-tagline {
   width: 40%;
   color: var(--base-200);
+}
+
+.hero .hero-tagline p {
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 .hero .hero-stats {
@@ -104,8 +116,17 @@
     padding: 0.5rem;
   }
 
+  .hero .hero-content h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.06rem;
+  }
+
   .hero .hero-tagline {
     width: 85%;
+  }
+
+  .hero .hero-tagline p {
+    font-size: 1rem;
   }
 
   .hero .hero-stats .container {
@@ -133,8 +154,17 @@
     padding: 0.5rem;
   }
 
+  .hero .hero-content h1 {
+    font-size: 2rem;
+    letter-spacing: -0.05rem;
+  }
+
   .hero .hero-tagline {
     width: 95%;
+  }
+
+  .hero .hero-tagline p {
+    font-size: 0.9375rem;
   }
 
   .hero .hero-stats .stat {
@@ -152,6 +182,7 @@
 .what-we-do .container h1 {
   margin-bottom: 10rem;
   color: var(--base-100);
+  text-align: center;
 }
 
 .what-we-do .what-we-do-content {
@@ -193,6 +224,25 @@
   margin: 0 0.5rem 0.5rem 0;
   border: 1px solid var(--base-400);
   border-radius: 4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.what-we-do .what-we-do-tag:hover {
+  background-color: var(--brand-blue);
+  border-color: var(--brand-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(26, 126, 183, 0.25);
+}
+
+.what-we-do .what-we-do-tag:hover h3 {
+  color: white;
+}
+
+.what-we-do .what-we-do-tag:active {
+  transform: translateY(-1px);
 }
 
 @media (max-width: 1000px) {

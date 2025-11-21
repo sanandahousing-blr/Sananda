@@ -1,7 +1,8 @@
 export const spacesData = [
   {
     id: 1,
-    categories: ["Retreat", "Wellness"],
+    category: "Residential",
+    categories: ["Residential", "Retreat"],
     image: "/spaces/space-1.jpg",
     date: "June 10, 2021",
     name: "Desert Poolhouse",
@@ -12,7 +13,8 @@ export const spacesData = [
   },
   {
     id: 2,
-    categories: ["Home", "Cultural"],
+    category: "Residential",
+    categories: ["Residential", "Cultural"],
     image: "/spaces/space-2.jpg",
     date: "May 15, 2021",
     name: "Sanctum Hall",
@@ -23,7 +25,8 @@ export const spacesData = [
   },
   {
     id: 3,
-    categories: ["Home", "Gallery"],
+    category: "Residential",
+    categories: ["Residential", "Modern"],
     image: "/spaces/space-3.jpg",
     date: "April 22, 2021",
     name: "Arcade Residence",
@@ -34,7 +37,8 @@ export const spacesData = [
   },
   {
     id: 4,
-    categories: ["Gallery", "Cultural"],
+    category: "Commercial",
+    categories: ["Commercial", "Gallery"],
     image: "/spaces/space-4.jpg",
     date: "March 8, 2021",
     name: "Atrium Gallery",
@@ -45,7 +49,8 @@ export const spacesData = [
   },
   {
     id: 5,
-    categories: ["Home", "Retreat"],
+    category: "Residential",
+    categories: ["Residential", "Retreat"],
     image: "/spaces/space-5.jpg",
     date: "February 14, 2021",
     name: "Mountain Retreat",
@@ -56,7 +61,8 @@ export const spacesData = [
   },
   {
     id: 6,
-    categories: ["Cultural", "Home"],
+    category: "Commercial",
+    categories: ["Commercial", "Cultural"],
     image: "/spaces/space-6.jpg",
     date: "January 30, 2021",
     name: "Horizon Pavilion",
@@ -67,7 +73,8 @@ export const spacesData = [
   },
   {
     id: 7,
-    categories: ["Wellness", "Retreat", "Gallery"],
+    category: "Hospitality",
+    categories: ["Hospitality", "Wellness"],
     image: "/spaces/space-7.jpg",
     date: "December 12, 2020",
     name: "Lumen Spa",

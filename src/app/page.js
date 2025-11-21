@@ -16,6 +16,8 @@ import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
 import HowWeWork from "@/components/HowWeWork/HowWeWork";
+import ExpertisePopup from "@/components/ExpertisePopup/ExpertisePopup";
+import { expertiseData } from "@/data/expertise-data";
 
 let isInitialLoad = true;
 gsap.registerPlugin(ScrollTrigger, CustomEase);
@@ -25,6 +27,8 @@ export default function Home() {
   const tagsRef = useRef(null);
   const [showPreloader, setShowPreloader] = useState(isInitialLoad);
   const [loaderAnimating, setLoaderAnimating] = useState(false);
+  const [selectedExpertise, setSelectedExpertise] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const lenis = useLenis();
 
   useEffect(() => {
@@ -239,7 +243,6 @@ export default function Home() {
           <div className="what-we-do-header">
             <Copy delay={0.1}>
               <h1>
-                <span className="spacer">&nbsp;</span>
                 At SANANDA HOUSING PRIVATE LIMITED, we bring technical expertise and innovative design concepts together to create spaces that are perfectly tailored to your unique lifestyle and vision.
               </h1>
             </Copy>
@@ -258,22 +261,58 @@ export default function Home() {
             </div>
             <div className="what-we-do-col">
               <div className="what-we-do-tags" ref={tagsRef}>
-                <div className="what-we-do-tag">
+                <div
+                  className="what-we-do-tag"
+                  onClick={() => {
+                    setSelectedExpertise(expertiseData.construction);
+                    setIsPopupOpen(true);
+                  }}
+                >
                   <h3>Construction</h3>
                 </div>
-                <div className="what-we-do-tag">
+                <div
+                  className="what-we-do-tag"
+                  onClick={() => {
+                    setSelectedExpertise(expertiseData.interiorDesign);
+                    setIsPopupOpen(true);
+                  }}
+                >
                   <h3>Interior Design</h3>
                 </div>
-                <div className="what-we-do-tag">
+                <div
+                  className="what-we-do-tag"
+                  onClick={() => {
+                    setSelectedExpertise(expertiseData.customFurniture);
+                    setIsPopupOpen(true);
+                  }}
+                >
                   <h3>Custom Furniture</h3>
                 </div>
-                <div className="what-we-do-tag">
+                <div
+                  className="what-we-do-tag"
+                  onClick={() => {
+                    setSelectedExpertise(expertiseData.planning2d3d);
+                    setIsPopupOpen(true);
+                  }}
+                >
                   <h3>2D/3D Planning</h3>
                 </div>
-                <div className="what-we-do-tag">
+                <div
+                  className="what-we-do-tag"
+                  onClick={() => {
+                    setSelectedExpertise(expertiseData.officeSetup);
+                    setIsPopupOpen(true);
+                  }}
+                >
                   <h3>Office Setup</h3>
                 </div>
-                <div className="what-we-do-tag">
+                <div
+                  className="what-we-do-tag"
+                  onClick={() => {
+                    setSelectedExpertise(expertiseData.modernInteriors);
+                    setIsPopupOpen(true);
+                  }}
+                >
                   <h3>Modern Interiors</h3>
                 </div>
               </div>
@@ -338,6 +377,11 @@ export default function Home() {
         header="SANANDA HOUSING PRIVATE LIMITED"
         callout="Your Vision, Our Expertise"
         description="From initial consultation to final execution, we bring professionalism, precision, and passion to every project. Let's build something extraordinary together."
+      />
+      <ExpertisePopup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+        expertise={selectedExpertise}
       />
       <ConditionalFooter />
     </>
