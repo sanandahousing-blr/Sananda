@@ -169,7 +169,7 @@ export default function Home() {
             <div className="hero-tagline">
               <Copy animateOnScroll={false} delay={1}>
                 <p>
-                  Since 2010, SANANDA HOUSING PRIVATE LIMITED has been transforming visions into reality through expert construction, innovative interior design, and custom furniture solutions that define modern living.
+                  Since 2008, SANANDA HOUSING PRIVATE LIMITED has been transforming visions into reality through expert construction, innovative interior design, and custom furniture solutions that define modern living.
                 </p>
               </Copy>
             </div>

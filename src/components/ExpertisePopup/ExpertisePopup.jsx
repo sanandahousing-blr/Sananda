@@ -1,31 +1,47 @@
 "use client";
 import "./ExpertisePopup.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { RiCloseLine } from "react-icons/ri";
 
 const ExpertisePopup = ({ isOpen, onClose, expertise }) => {
+  const overlayRef = useRef(null);
+  const contentRef = useRef(null);
+
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    if (!isOpen) return;
+
+    // Save current scroll position
+    const scrollY = window.scrollY;
+
+    // Just hide overflow, don't use fixed positioning
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    document.body.dataset.scrollY = scrollY.toString();
 
     return () => {
-      document.body.style.overflow = "unset";
+      // Restore scrolling
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+
+      // Restore scroll position
+      const savedScrollY = document.body.dataset.scrollY;
+      if (savedScrollY) {
+        window.scrollTo(0, parseInt(savedScrollY));
+        delete document.body.dataset.scrollY;
+      }
     };
   }, [isOpen]);
 
   if (!isOpen || !expertise) return null;
 
   return (
-    <div className="expertise-popup-overlay" onClick={onClose}>
+    <div className="expertise-popup-overlay" onClick={onClose} ref={overlayRef}>
       <div className="expertise-popup" onClick={(e) => e.stopPropagation()}>
         <button className="expertise-popup-close" onClick={onClose} aria-label="Close">
           <RiCloseLine />
         </button>
 
-        <div className="expertise-popup-content">
+        <div className="expertise-popup-content" ref={contentRef} data-lenis-prevent>
           <div className="expertise-popup-header">
             <div className="expertise-popup-icon">{expertise.icon}</div>
             <h2>{expertise.title}</h2>

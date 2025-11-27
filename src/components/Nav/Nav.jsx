@@ -313,7 +313,7 @@ const Nav = () => {
                 <div className="menu-meta">
                   <p>Company</p>
                   <p>SANANDA HOUSING PRIVATE LIMITED</p>
-                  <p>Since 2010</p>
+                  <p>Since 2008</p>
                 </div>
               </div>
               <div className="sub-col">
