@@ -1,0 +1,15 @@
+{
+    "redirects": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "sanandahousing.com"
+                }
+            ],
+            "destination": "https://www.sanandahousing.com/:path*",
+            "permanent": true
+        }
+    ]
+}
